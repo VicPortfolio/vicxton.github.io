@@ -2,96 +2,142 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>VicPortfolio — Developer Portfolio</title>
-  <meta name="description" content="VicPortfolio — developer portfolio showcasing web projects, code samples, and contact information.">
+  <title>VicPortfolio — Professional Developer Portfolio</title>
+  <meta name="description" content="VicPortfolio — professional developer portfolio showcasing scalable web applications, open-source projects, and contact information.">
   <link rel="canonical" href="https://vicportfolio.github.io/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Inter:wght@600;800&display=swap" rel="stylesheet">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Person","name":"VicPortfolio","url":"https://vicportfolio.github.io","sameAs":["https://github.com/vicportfolio"]}
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"VicPortfolio",
+    "url":"https://vicportfolio.github.io",
+    "sameAs":[
+      "https://github.com/vicportfolio",
+      "https://www.instagram.com/your-instagram",
+      "https://t.me/your-telegram",
+      "https://wa.me/your-whatsapp-number"
+    ]
+  }
   </script>
   <style>
     :root{
-      --bg:#2e2e2e;
-      --card:#3a3a3a;
-      --muted:#cfcfcf;
+      --bg:#2b2b2b;
+      --card:#383838;
+      --muted:#d0d0d0;
       --accent:#28a745;
       --white:#ffffff;
-      --radius:10px;
+      --radius:12px;
+      --max-width:1100px;
     }
 
-    /* Page layout */
     html,body{height:100%}
     body{
       margin:0;
       min-height:100%;
       background:var(--bg);
       color:var(--white);
-      font-family:'Dancing Script', 'Inter', Arial, Helvetica, sans-serif;
+      font-family:'Caveat', 'Inter', Arial, Helvetica, sans-serif;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
-      max-width:1000px;
-      margin:36px auto;
-      padding:20px;
-      line-height:1.6;
+      max-width:var(--max-width);
+      margin:28px auto;
+      padding:28px;
+      line-height:1.5;
       font-size:20px;
     }
 
-    /* Header */
-    header{margin-bottom:28px}
+    /* Main heading: large, bold, occupies breadth moderately */
+    header{margin-bottom:28px; text-align:center}
     h1{
-      margin:0 0 6px;
-      font-family:'Dancing Script', 'Inter', sans-serif;
+      margin:0;
+      font-family:'Inter', 'Caveat', sans-serif;
+      font-weight:800;
+      font-size:clamp(48px, 8vw, 96px);
+      line-height:1;
+      color:var(--white);
+      letter-spacing:0.6px;
+      text-wrap:balance;
+      word-break:break-word;
+    }
+    .subtitle{
+      margin-top:8px;
+      color:var(--muted);
+      font-family:'Caveat', 'Inter', sans-serif;
+      font-size:20px;
+      max-width:900px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    /* Layout */
+    main{margin-top:22px}
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 360px;
+      gap:22px;
+      align-items:start;
+    }
+    @media (max-width:980px){
+      .grid{grid-template-columns:1fr}
+      header{text-align:left}
+      h1{text-align:left}
+      .subtitle{text-align:left}
+    }
+
+    /* Cards and sections */
+    section.card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:0 8px 26px rgba(0,0,0,0.35);
+      border:1px solid rgba(255,255,255,0.04);
+    }
+    h2{
+      margin:0 0 12px 0;
+      font-family:'Inter', sans-serif;
       font-weight:700;
-      font-size:44px;
-      letter-spacing:0.5px;
+      font-size:20px;
       color:var(--white);
     }
-    p.lead{
-      margin:0 0 18px;
-      color:var(--muted);
-      font-family:'Dancing Script', 'Inter', sans-serif;
-      font-size:20px;
-    }
+    p{margin:0 0 12px 0;color:var(--muted);font-family:'Caveat', 'Inter', sans-serif;font-size:20px}
 
     /* Projects grid */
     .projects{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:18px;
-      margin:18px 0;
+      gap:16px;
     }
-    .card{
-      background:var(--card);
-      border-radius:var(--radius);
-      padding:14px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.25);
-      border:1px solid rgba(255,255,255,0.04);
+    .project{
+      background:rgba(255,255,255,0.02);
+      padding:12px;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.03);
     }
-    .card h3{
-      margin:0 0 8px;
-      font-size:22px;
+    .project h3{
+      margin:0 0 8px 0;
+      font-family:'Inter', sans-serif;
+      font-weight:600;
+      font-size:18px;
       color:var(--white);
-      font-family:'Dancing Script', 'Inter', sans-serif;
-      font-weight:700;
     }
-    .card p{margin:0 0 10px;color:var(--muted);font-family:'Dancing Script', 'Inter', sans-serif}
+    .project p{margin:0;color:var(--muted);font-size:16px}
 
-    img.project-thumb{
-      width:100%;
-      height:auto;
-      border-radius:8px;
-      display:block;
-      margin:8px 0 12px;
-      border:1px solid rgba(255,255,255,0.04);
+    /* Contact column */
+    .contact{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
     }
+    .contact .card-inner{display:flex;flex-direction:column;gap:10px}
 
-    /* Icons */
-    .contact-row{display:flex;gap:12px;align-items:center;margin-top:8px}
+    /* Round green icons */
+    .social-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
     .icon{
-      width:48px;
-      height:48px;
+      width:56px;
+      height:56px;
       display:inline-flex;
       align-items:center;
       justify-content:center;
@@ -99,86 +145,116 @@
       background:var(--accent);
       color:var(--white);
       text-decoration:none;
-      transition:transform .15s ease, box-shadow .15s ease, opacity .15s ease;
-      box-shadow:0 6px 14px rgba(40,167,69,0.18);
+      transition:transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+      box-shadow:0 8px 20px rgba(40,167,69,0.18);
       flex-shrink:0;
     }
-    .icon svg{width:22px;height:22px;fill:currentColor}
-    .icon:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(40,167,69,0.22)}
+    .icon svg{width:26px;height:26px;fill:currentColor}
+    .icon:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(40,167,69,0.22)}
     .icon:active{transform:translateY(0)}
-    .icon-label{color:var(--muted);font-size:14px;margin-left:8px}
+    .icon-label{color:var(--muted);font-size:15px;margin-left:8px}
 
     /* Links */
     a{color:var(--accent);text-decoration:none;font-weight:600}
     a:hover{text-decoration:underline}
 
     /* Footer */
-    footer{margin-top:36px;color:var(--muted);font-size:14px;text-align:center}
+    footer{margin-top:28px;color:var(--muted);font-size:14px;text-align:center}
 
-    /* Responsive tweaks */
+    /* Accessibility focus */
+    .icon:focus{outline:3px solid rgba(40,167,69,0.18);outline-offset:3px}
+
+    /* Small screens */
     @media (max-width:520px){
-      body{padding:16px;font-size:18px}
-      h1{font-size:36px}
-      .icon{width:44px;height:44px}
+      .icon{width:48px;height:48px}
+      .subtitle{font-size:18px}
+      p{font-size:18px}
     }
   </style>
 </head>
 <body>
   <header>
     <h1>VicPortfolio</h1>
-    <p class="lead">Hi — I'm VicPortfolio. I build web projects, share code samples, and solve problems with clean, maintainable code.</p>
-    <p><strong>Site:</strong> <a href="https://vicportfolio.github.io/" target="_blank" rel="noopener">https://vicportfolio.github.io/</a></p>
+    <p class="subtitle">
+      I am a results-driven software developer specializing in building scalable web applications, intuitive user experiences, and maintainable codebases. I deliver production-ready solutions that combine modern engineering practices, performance optimization, and clear documentation to solve real business problems.
+    </p>
   </header>
 
   <main>
-    <section aria-labelledby="projects-heading">
-      <h2 id="projects-heading" style="font-family:'Inter', 'Dancing Script', sans-serif; font-size:20px; color:var(--white); margin-top:0">Selected Projects</h2>
-      <div class="projects">
-        <article class="card">
-          <h3>Project One</h3>
-          <img class="project-thumb" src="images/project1.png" alt="Screenshot of Project One interface">
-          <p>Short description of Project One — what it does and the main technologies used.</p>
-          <p><a href="projects/project-one.html">View details</a> · <a href="https://github.com/vicportfolio/project-one" target="_blank" rel="noopener">Source</a></p>
-        </article>
+    <div class="grid">
+      <!-- Left column: projects and about -->
+      <div>
+        <section class="card" aria-labelledby="projects-heading">
+          <h2 id="projects-heading">Selected Projects</h2>
+          <div class="projects">
+            <article class="project">
+              <h3>Project One — Scalable Web App</h3>
+              <p>Designed and implemented a high-performance single-page application with server-side rendering, progressive enhancement, and automated CI/CD pipelines.</p>
+              <p><a href="projects/project-one.html">View details</a> · <a href="https://github.com/vicportfolio/project-one" target="_blank" rel="noopener">Source</a></p>
+            </article>
 
-        <article class="card">
-          <h3>Project Two</h3>
-          <img class="project-thumb" src="images/project2.png" alt="Screenshot of Project Two interface">
-          <p>Short description of Project Two — highlight a feature or two and the stack.</p>
-          <p><a href="projects/project-two.html">View details</a> · <a href="https://github.com/vicportfolio/project-two" target="_blank" rel="noopener">Source</a></p>
-        </article>
+            <article class="project">
+              <h3>Project Two — API & Integrations</h3>
+              <p>Built a robust RESTful API with authentication, rate limiting, and third-party integrations for payments and messaging services.</p>
+              <p><a href="projects/project-two.html">View details</a> · <a href="https://github.com/vicportfolio/project-two" target="_blank" rel="noopener">Source</a></p>
+            </article>
+          </div>
+        </section>
+
+        <section class="card" aria-labelledby="about-heading" style="margin-top:18px">
+          <h2 id="about-heading">About Me</h2>
+          <p>
+            I specialize in front-end and full-stack development with a focus on performance, accessibility, and maintainability. My work emphasizes clean architecture, test-driven development, and pragmatic engineering decisions that accelerate delivery while reducing long-term technical debt.
+          </p>
+          <p>
+            I have experience with modern JavaScript frameworks, serverless platforms, and containerized deployments. I enjoy mentoring teams, contributing to open-source, and continuously improving product quality through measurable metrics and user feedback.
+          </p>
+        </section>
       </div>
-    </section>
 
-    <section aria-labelledby="about-heading">
-      <h2 id="about-heading" style="font-family:'Inter', 'Dancing Script', sans-serif; font-size:20px; color:var(--white)">About</h2>
-      <p>I focus on front-end and full-stack web development. I enjoy building small, useful tools and learning new libraries and frameworks.</p>
-    </section>
+      <!-- Right column: contact and social -->
+      <aside class="contact">
+        <section class="card" aria-labelledby="contact-heading">
+          <div class="card-inner">
+            <h2 id="contact-heading">Contact</h2>
+            <p><strong>Email:</strong> <a href="mailto:shalomvictor0401@gmail.com">shalomvictor0401@gmail.com</a></p>
+            <p><strong>Location:</strong> Abuja, Nigeria</p>
 
-    <section aria-labelledby="contact-heading">
-      <h2 id="contact-heading" style="font-family:'Inter', 'Dancing Script', sans-serif; font-size:20px; color:var(--white)">Contact</h2>
-      <p>If you want to reach me: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
-      <p>Find me on GitHub: <a href="https://github.com/vicportfolio" target="_blank" rel="noopener">github.com/vicportfolio</a></p>
+            <div>
+              <h2 style="font-size:16px;margin-top:6px">Connect</h2>
+              <div class="social-row" style="margin-top:8px">
+                <!-- GitHub -->
+                <a class="icon" href="https://github.com/vicportfolio" target="_blank" rel="noopener" aria-label="GitHub">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.75 5.48.75 11.75c0 4.93 3.19 9.11 7.61 10.59.56.1.77-.24.77-.54 0-.27-.01-1.16-.02-2.1-3.09.67-3.74-1.49-3.74-1.49-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.16 1.73 1.16 1 .17 1.57-.75 1.57-.75.9-1.54 2.36-1.1 2.94-.84.09-.66.35-1.1.64-1.35-2.47-.28-5.07-1.24-5.07-5.52 0-1.22.44-2.22 1.16-3-.12-.28-.5-1.4.11-2.92 0 0 .95-.3 3.12 1.15.9-.25 1.86-.38 2.82-.38.96 0 1.92.13 2.82.38 2.17-1.45 3.12-1.15 3.12-1.15.61 1.52.23 2.64.11 2.92.72.78 1.16 1.78 1.16 3 0 4.29-2.61 5.24-5.09 5.51.36.31.68.92.68 1.86 0 1.34-.01 2.42-.01 2.75 0 .3.2.65.78.54 4.42-1.48 7.61-5.66 7.61-10.59C23.25 5.48 18.27.5 12 .5z"/></svg>
+                </a>
 
-      <div class="contact-row" style="margin-top:12px">
-        <!-- GitHub icon -->
-        <a class="icon" href="https://github.com/vicportfolio" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.73.5.75 5.48.75 11.75c0 4.93 3.19 9.11 7.61 10.59.56.1.77-.24.77-.54 0-.27-.01-1.16-.02-2.1-3.09.67-3.74-1.49-3.74-1.49-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.16 1.73 1.16 1 .17 1.57-.75 1.57-.75.9-1.54 2.36-1.1 2.94-.84.09-.66.35-1.1.64-1.35-2.47-.28-5.07-1.24-5.07-5.52 0-1.22.44-2.22 1.16-3-.12-.28-.5-1.4.11-2.92 0 0 .95-.3 3.12 1.15.9-.25 1.86-.38 2.82-.38.96 0 1.92.13 2.82.38 2.17-1.45 3.12-1.15 3.12-1.15.61 1.52.23 2.64.11 2.92.72.78 1.16 1.78 1.16 3 0 4.29-2.61 5.24-5.09 5.51.36.31.68.92.68 1.86 0 1.34-.01 2.42-.01 2.75 0 .3.2.65.78.54 4.42-1.48 7.61-5.66 7.61-10.59C23.25 5.48 18.27.5 12 .5z"/></svg>
-        </a>
+                <!-- Instagram -->
+                <a class="icon" href="https://www.instagram.com/your-instagram" target="_blank" rel="noopener" aria-label="Instagram" style="background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af); box-shadow:0 8px 20px rgba(0,0,0,0.35)">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm0 2h10c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3zm5 3.5A4.5 4.5 0 1 0 16.5 12 4.5 4.5 0 0 0 12 7.5zm0 2A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5zM18.5 6a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/></svg>
+                </a>
 
-        <!-- Email icon -->
-        <a class="icon" href="mailto:your-email@example.com" aria-label="Email">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-        </a>
+                <!-- WhatsApp -->
+                <a class="icon" href="https://wa.me/234XXXXXXXXXX" target="_blank" rel="noopener" aria-label="WhatsApp" style="background:#25D366; box-shadow:0 8px 20px rgba(37,211,102,0.18)">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.94 11.94 0 0 0 12 .5C5.73.5.75 5.48.75 11.75c0 2.07.54 4.02 1.56 5.74L.5 23.5l6.6-1.73A11.94 11.94 0 0 0 12 23.5c6.27 0 11.25-4.98 11.25-11.75 0-3.14-1.22-6.09-3.73-8.27zM12 21c-1.6 0-3.16-.42-4.5-1.22l-.32-.19-3.92 1.03 1.05-3.82-.21-.34A8.5 8.5 0 1 1 20.5 12 8.5 8.5 0 0 1 12 21zm4.3-6.1c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.44-1.34-1.68-.14-.24-.02-.36.1-.48.1-.1.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.42-.54-.42-.14 0-.3-.02-.46-.02-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2 0 1.18.86 2.32.98 2.48.12.16 1.7 2.6 4.12 3.64 2.42 1.04 2.42.7 2.86.66.44-.04 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z"/></svg>
+                </a>
 
-        <!-- External / website icon -->
-        <a class="icon" href="https://vicportfolio.github.io" target="_blank" rel="noopener" aria-label="Open site">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3v2h3.59L10 12.59 11.41 14 19 6.41V10h2V3h-7zM5 5h6V3H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-6h-2v6H5V5z"/></svg>
-        </a>
+                <!-- Telegram -->
+                <a class="icon" href="https://t.me/your-telegram" target="_blank" rel="noopener" aria-label="Telegram" style="background:#0088cc; box-shadow:0 8px 20px rgba(0,136,204,0.18)">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 3.5L2.5 10.5c-.9.3-.9 1.2-.2 1.6l3.8 1.5 1.5 4.8c.3.9 1.2.9 1.6.2l2.6-3.8 4.8 3.2c.9.6 1.6.3 1.8-.8L23 5.3c.2-1.1-.6-1.8-1.5-1.8z"/></svg>
+                </a>
 
-        <span class="icon-label">Quick links</span>
-      </div>
-    </section>
+                <span class="icon-label">Follow or message me</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" style="margin-top:12px" aria-labelledby="quick-links-heading">
+          <h2 id="quick-links-heading">Quick Links</h2>
+          <p><a href="https://vicportfolio.github.io" target="_blank" rel="noopener">Live site</a> · <a href="https://github.com/vicportfolio" target="_blank" rel="noopener">GitHub</a> · <a href="https://github.com/vicportfolio/resume" target="_blank" rel="noopener">Resume</a></p>
+        </section>
+      </aside>
+    </div>
   </main>
 
   <footer>
